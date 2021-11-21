@@ -1,0 +1,8 @@
+package runTests
+
+depends = dinwiddy
+
+modules = Tests
+main = Tests
+
+executable = runTests

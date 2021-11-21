@@ -1,0 +1,13 @@
+#+TITLE: Contributing
+
+Thanks for considering contributing to Dinwiddy!
+
+** Caches
+
+It may interest those using Nix to develop Dinwiddy, that we use the =idris2-pkgs= Cachix cache to eliminate rebuilding all of Idris. With =cachix= installed, running the following will enable cached builds:
+
+#+begin_src
+cachix use cm-idris2-pkgs
+#+end_src
+
+For more information, see [[https://github.com/claymager/idris2-pkgs][claymager/idris2-pkgs]].
