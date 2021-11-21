@@ -2,7 +2,7 @@ module Life
 
 import Dinwiddy
 
-step : (NDArray 2D Int) -> (NDArray 2D Int)
+step : Matrix2 Int -> Matrix2 Int
 step ?somethingHere = / Sum surrounding pieces and decide what to do accordingly /
 
 -- Given some 2D array and a point, calculate the # of surrounding living blocks.

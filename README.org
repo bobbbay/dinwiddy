@@ -1,3 +1,6 @@
 #+TITLE: Dinwiddy
 
-N-dimensional arrays in Idris 2.
+N-dimensional arrays in Idris 2, featuring:
+
+ * Nat-indexable n-dimensional array type synonyms
+ * Matrices and matrix algebra helper functions
