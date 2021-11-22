@@ -1,17 +1,37 @@
 module Dinwiddy
 
+import Data.Vect
+
+||| A type-unsafe array based on List. Please don't use this unless you know what you're doing.
 public export
-Array : (dimension : Nat) -> (type : Type) -> Type
-Array (S Z) t = List t
-Array (S k) t = List (Array k t)
-Array Z     _ = ()
+UnsafeArray : (dimension : Nat) -> (type : Type) -> Type
+UnsafeArray (S Z) t = List t
+UnsafeArray (S k) t = List (UnsafeArray k t)
+UnsafeArray Z     _ = ()
+
+-- A type-safe array (based on Vect).
+-- Example:
+-- x : Array 3 _ Bool
+public export
+Array : (dimension : Nat) -> (dimensions : Vect dimension Nat) -> (type : Type) -> Type
+Array (S Z) ds t = Vect (head ds) t
+Array (S k) ds t = Vect (head ds) (Array k (tail ds) t)
+Array Z     _  _ = ()
+
+{-
+  Hypothetical scenario: Array 3 [2, 3] Int.
+  Should make type for the following array:
+  ###
+  ###
+  So, we're given an (S k). That makes a vect of
+-}
 
 namespace Matrix
   -- TODO: Generic over only numeric types.
   ||| Generic 2D Matrix type.
   public export
   Matrix2 : Type -> Type
-  Matrix2 = Array 2
+  Matrix2 = UnsafeArray 2
 
 {-
   Hypothetical scenario: Array 3 Int.
