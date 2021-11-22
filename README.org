@@ -4,3 +4,25 @@ N-dimensional arrays in Idris 2, featuring:
 
  * Nat-indexable n-dimensional array type synonyms
  * Matrices and matrix algebra helper functions
+
+** Usage
+
+At a very basic level:
+
+#+begin_src idris2
+x : Array 2 [2, 3] Bool
+#+end_src
+
+Will create an array that looks like this:
+
+#+begin_src
+###
+###
+#+end_src
+
+Full of booleans. It's value could be, for example:
+
+#+begin_src idris2
+x = [[ True,  True,  True ],
+     [ False, False, True ]]
+#+end_src

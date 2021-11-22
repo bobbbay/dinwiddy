@@ -1,5 +1,7 @@
 module Life
 
+-- This example is a work in progress, as Dinwiddy evolves :).
+
 import Dinwiddy
 
 import Data.Vect
