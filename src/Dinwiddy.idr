@@ -28,10 +28,14 @@ Array Z     _  _ = ()
 
 namespace Matrix
   -- TODO: Generic over only numeric types.
-  ||| Generic 2D Matrix type.
+  ||| Generic unsafe 2D Matrix type.
   public export
-  Matrix2 : Type -> Type
-  Matrix2 = UnsafeArray 2
+  UnsafeMatrix2 : Type -> Type
+  UnsafeMatrix2 = UnsafeArray 2
+
+  public export
+  Matrix2 : Vect 2 Nat -> Type -> Type
+  Matrix2 = Array 2
 
 {-
   Hypothetical scenario: Array 3 Int.
@@ -46,7 +50,7 @@ namespace Matrix
 -}
 
 {-
-  TODO: Stronger Array type based off of Vect
+  DONE: Stronger Array type based off of Vect
   TODO: Helper functions for arrays (e.g. zeros)
   DONE: Matrix type synonym
   TODO: Matrix multiplication
