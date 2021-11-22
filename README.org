@@ -9,7 +9,7 @@ N-dimensional arrays in Idris 2, featuring:
 
 At a very basic level:
 
-#+begin_src idris2
+#+begin_src idris
 x : Array 2 [2, 3] Bool
 #+end_src
 
@@ -22,7 +22,9 @@ Will create an array that looks like this:
 
 Full of booleans. It's value could be, for example:
 
-#+begin_src idris2
+#+begin_src idris
 x = [[ True,  True,  True ],
      [ False, False, True ]]
 #+end_src
+
+Check out =src/Dinwiddy.idr= for more types and documentation. =examples/Life.idr= is a (WIP) implementation of Conway's game of life using Dinwiddy.
