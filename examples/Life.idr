@@ -5,6 +5,7 @@ module Life
 import Dinwiddy
 
 import Data.Vect
+import Data.Fin
 
 ||| A type for the size of the board.
 BoardSize : Vect 2 Nat
@@ -12,21 +13,36 @@ BoardSize = [10, 10]
 
 ||| A basic board type: a 2D array of 10x10.
 Board : Type
-Board = Array 2 BoardSize Int
+Board = Array 2 BoardSize Bool
 
-step : board -> board
-step = ?idk
+mutual
+  ||| Given a board, apply another step onto it, effectively looping over every
+  ||| point and calculating its status.
+  step : Board -> Board
 
--- Given some 2D array and a point, calculate the # of surrounding living blocks.
--- How do we deal with overflows? Maybe by having a Point type that must be valid?
--- Or, we can return a Maybe and default to 0.
-step' : Board -> Int -> Int -> Int
+  ||| Same as `step`, but does the bulk looping process.
+  step' : Vect n (Vect m Bool) -> Vect n (Vect m Bool)
 
--- One way we can achieve this is by providing a special point type with margins.
--- The type should gaurantee during compile time that the margins exists.
--- Imaginably, very useful for board games and such.
-stepPrimeWithPointType : Board -> (?PointWithMargins 1 1 1 1) -> Int
+  isAlive : (Fin n, Fin m) -> Vect n (Vect m Bool) -> Bool
+  isAlive _ _ = True
+
+  ||| Given a location and a board, calculate the # of surrounding living blocks.
+  neighbours : (Fin 10, Fin 10) -> Board -> Nat
+
+example : Board
+example = [[True, True, True, True, True, True, True, True, True, True],
+           [True, True, True, True, True, True, True, True, True, True],
+           [True, True, True, True, True, True, True, True, True, True],
+           [True, True, True, True, True, True, True, True, True, True],
+           [True, True, True, True, True, True, True, True, True, True],
+           [True, True, True, True, True, True, True, True, True, True],
+           [True, True, True, True, True, True, True, True, True, True],
+           [True, True, True, True, True, True, True, True, True, True],
+           [True, True, True, True, True, True, True, True, True, True],
+           [True, True, True, True, True, True, True, True, True, True]]
 
 export
 life : IO ()
-life = putStrLn "Generated game of life!"
+life = do putStrLn $ show example
+          putStrLn $ show $ step example
+          putStrLn "Generated game of life!"
