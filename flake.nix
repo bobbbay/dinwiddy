@@ -9,8 +9,10 @@
       let
         pkgs = import nixpkgs { inherit system; overlays = [ idris2-pkgs.overlay ]; };
         inherit (pkgs.idris2-pkgs._builders) idrisPackage devEnv;
+
         dinwiddy = idrisPackage ./. { };
         runTests = idrisPackage ./test { extraPkgs.dinwiddy = dinwiddy; };
+        examples = idrisPackage ./examples { extraPkgs.dinwiddy = dinwiddy; };
       in
       {
         # Since Dinwiddy is a library, the default package should just be tests.
@@ -18,7 +20,7 @@
 
         # But we still expose the dinwiddy package as an available one, for
         # those interested.
-        packages = { inherit dinwiddy runTests; };
+        packages = { inherit dinwiddy runTests examples; };
 
         devShell = pkgs.mkShell {
           buildInputs = [ (devEnv dinwiddy) ];

@@ -1,0 +1,10 @@
+package examples
+
+depends = dinwiddy
+
+modules = Main
+        , Life
+
+main = Main
+
+executable = examples
