@@ -1,0 +1,8 @@
+#+TITLE: TODOS
+
+* DONE Stronger Array type based off of Vect
+* TODO Helper functions for arrays (e.g. zeros)
+* TODO Game of Life example
+* DONE Matrix type synonym
+* TODO Matrix multiplication
+* TODO Force Matrix values to have numeric types

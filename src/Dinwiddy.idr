@@ -2,14 +2,6 @@ module Dinwiddy
 
 import Data.Vect
 
-{-
-  DONE: Stronger Array type based off of Vect
-  TODO: Helper functions for arrays (e.g. zeros)
-  DONE: Matrix type synonym
-  TODO: Matrix multiplication
-  TODO: Force Matrix values to have numeric types
--}
-
 ||| A type-unsafe array, based on List.
 ||| Example usage:
 ||| ```
