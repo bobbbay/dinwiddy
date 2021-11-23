@@ -1,6 +1,9 @@
 package dinwiddy
 
 modules = Dinwiddy
+        , Dinwiddy.UnsafeArray
+        , Dinwiddy.Array
+        , Dinwiddy.Matrix
 
 depends = contrib
 
