@@ -10,7 +10,7 @@ N-dimensional arrays in Idris 2, featuring:
 At a very basic level, the API for an N-dimensional array in Dinwiddy is the following:
 
 #+begin_src idris
-Array (dimension : Nat) (sizes : Vect d Nat) (type : Type)
+Array : (dimension : Nat) -> (sizes : Vect dimension Nat) -> (type : Type)
 #+end_src
 
 For example, the following type declaration =x=:
@@ -33,4 +33,4 @@ x = [[ True,  True,  True ],
      [ False, False, True ]]
 #+end_src
 
-Check out =src= for more types and documentation. =examples/Life.idr= is a (WIP) implementation of Conway's game of life using Dinwiddy.
+Check out `examples` and `tests` for more information.

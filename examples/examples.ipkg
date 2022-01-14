@@ -2,9 +2,9 @@ package examples
 
 depends = dinwiddy
 
-modules = Main
-        , Life
+modules = Examples.Main
+        , Examples.Life
 
-main = Main
+main = Examples.Main
 
 executable = examples

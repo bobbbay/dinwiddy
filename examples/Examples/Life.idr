@@ -1,17 +1,24 @@
-module Life
-
--- This example is a work in progress, as Dinwiddy evolves :).
+module Examples.Life
 
 import Dinwiddy
 
 import Data.Vect
 import Data.Fin
+  
+||| Width of the board.
+W : Nat
+W = 10
 
-||| A type for the size of the board.
+||| Height of the board.
+H : Nat
+H = 10
+
+||| The size of the board.
 BoardSize : Vect 2 Nat
-BoardSize = [10, 10]
+BoardSize = [W, H]
 
-||| A basic board type: a 2D array of 10x10.
+||| A basic board type: a 2D array of Bools, with the size of BoardSize.
+||| A square is dead if it is False, and alive if it is True.
 Board : Type
 Board = Array 2 BoardSize Bool
 
@@ -19,15 +26,7 @@ mutual
   ||| Given a board, apply another step onto it, effectively looping over every
   ||| point and calculating its status.
   step : Board -> Board
-
-  ||| Same as `step`, but does the bulk looping process.
-  step' : Vect n (Vect m Bool) -> Vect n (Vect m Bool)
-
-  isAlive : (Fin n, Fin m) -> Vect n (Vect m Bool) -> Bool
-  isAlive _ _ = True
-
-  ||| Given a location and a board, calculate the # of surrounding living blocks.
-  neighbours : (Fin 10, Fin 10) -> Board -> Nat
+  step b = b
 
 example : Board
 example = [[True, True, True, True, True, True, True, True, True, True],
